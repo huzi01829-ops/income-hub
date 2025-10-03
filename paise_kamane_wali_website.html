@@ -1,0 +1,266 @@
+<!--
+Simple single-file money-making website (Urdu/Hinglish)
+Use: open this HTML in a browser, edit content, replace placeholders.
+Features included:
+ - Responsive landing page (Hero)
+ - Blog/Articles section (SEO-ready)
+ - Digital product cards with PayPal/Stripe placeholders
+ - Affiliate links area
+ - Email capture (connect to Mailchimp / ConvertKit / server endpoint)
+ - Ad placeholder for Google AdSense
+ - Basic SEO meta tags + JSON-LD schema
+ - Deployment notes at bottom (GitHub Pages / Netlify / Vercel / Shared hosting)
+
+How to use quickly:
+ 1. Save this file as Paise-Kamane-Wali-Website.html
+ 2. Edit text, replace YOUR_PAYPAL_LINK, AFFILIATE_LINK, ADSENSE_CODE, MAILCHIMP_FORM_ACTION
+ 3. Deploy: push to GitHub repo -> Settings -> Pages OR drag to Netlify/Vercel dashboard
+ 4. For payments, configure PayPal/Stripe and add real webhook endpoints if needed.
+
+Monetization ideas implemented here:
+ - Sell digital products (ebooks, templates)
+ - Affiliate recommendations (tools, services)
+ - Display ads (AdSense) - placeholder included
+ - Email list to sell later / launch courses
+ - Paid membership (simple placeholder, can integrate Stripe subscriptions)
+-->
+
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paise Kamane Wali Website — Shuruat Karein</title>
+  <meta name="description" content="Aasaan tareeqay se paise kamane wali website — digital products, affiliate, ads aur email marketing. Start karein aaj!">
+  <meta name="keywords" content="online kamai, digital products, affiliate, adsense, blogging, Pakistan">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Open Graph (social) -->
+  <meta property="og:title" content="Paise Kamane Wali Website">
+  <meta property="og:description" content="Aasaan tareeqay se paise kamane wali website — digital products, affiliate, ads aur email marketing.">
+  <meta property="og:type" content="website">
+
+  <!-- Simple styling (RTL friendly) -->
+  <style>
+    :root{--bg:#0b1220;--card:#0f172a;--muted:#9aa4b2;--accent:#06b6d4}
+    *{box-sizing:border-box;font-family: 'Segoe UI', Tahoma, sans-serif}
+    body{margin:0;background:linear-gradient(180deg,#071025 0%,#071326 100%);color:#e6eef6}
+    .container{max-width:1100px;margin:24px auto;padding:20px}
+    header{display:flex;justify-content:space-between;align-items:center}
+    a.logo{font-weight:700;color:var(--accent);text-decoration:none}
+    nav a{color:var(--muted);margin-left:14px;text-decoration:none}
+    .hero{background:linear-gradient(90deg, rgba(10,20,30,0.6), rgba(6,10,18,0.6));padding:28px;border-radius:12px}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:10px}
+    h1{margin:0 0 8px 0;font-size:28px}
+    p.lead{color:var(--muted);margin:0 0 12px 0}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#022;cursor:pointer;text-decoration:none;font-weight:600}
+    .products{display:flex;flex-direction:column;gap:12px}
+    .product{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02)}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px}
+    .blog-list{display:flex;flex-direction:column;gap:12px}
+    .post{padding:12px;border-radius:8px;background:rgba(255,255,255,0.02)}
+    form input, form textarea{width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}.container{padding:12px}}
+  </style>
+
+  <!-- JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Paise Kamane Wali Website",
+    "url": "https://example.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://example.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="logo" href="#">KamaiSite</a>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#blog">Blog</a>
+        <a href="#earn">Earn</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="grid">
+        <div>
+          <h1>Apni website se paise kamana shuru karein</h1>
+          <p class="lead">Yeh simple template aapko digital product sale, affiliate links, ads aur email list ke zariye earning start karne mein madad karega. Seedha edit karein aur launch karein.</p>
+
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <a class="btn" href="#products">Products Bechein</a>
+            <a class="btn" style="background:#ffffff11;color:var(--accent)" href="#earn">Earn Ideas</a>
+          </div>
+
+          <section id="earn" style="margin-top:18px">
+            <div class="card small">
+              <strong>Monetization ideas:</strong>
+              <ul>
+                <li>Digital products (ebooks, templates) — immediate sale</li>
+                <li>Affiliate programs (hosting, tools) — recurring commission</li>
+                <li>Display ads (Google AdSense) — passive revenue</li>
+                <li>Email list + paid course or membership</li>
+              </ul>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="card">
+          <h3 style="margin-top:0">Quick Start</h3>
+          <ol class="small">
+            <li>File save karen aur hosting par upload karen</li>
+            <li>PayPal/Stripe/account details set karen</li>
+            <li>AdSense approve ke liye apply karen (site live & content zaroori)</li>
+            <li>Email marketing tool connect karen (Mailchimp/ConvertKit)</li>
+          </ol>
+
+          <div style="margin-top:12px">
+            <strong class="small">Email subscribe</strong>
+            <!-- Replace action with your Mailchimp / server endpoint -->
+            <form id="subscribeForm" onsubmit="subscribe(event)">
+              <input type="email" id="email" placeholder="apna email dalen" required>
+              <button class="btn" type="submit">Subscribe</button>
+            </form>
+            <p id="subMsg" class="small" style="margin-top:8px"></p>
+          </div>
+
+        </aside>
+      </div>
+
+      <!-- Products -->
+      <section id="products" style="margin-top:18px">
+        <h2>Digital Products</h2>
+        <p class="small">Behtareen tareeqa shuru karne ka — product create karein (ebook, template, course) aur seedha sell karein.</p>
+
+        <div class="products" style="margin-top:12px">
+          <div class="product">
+            <div>
+              <strong>Website Starter Kit (Ebook)</strong>
+              <div class="small">Price: $10 — instant download</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <!-- PayPal example button (replace with real link) -->
+              <a class="btn" href="YOUR_PAYPAL_LINK">Buy (PayPal)</a>
+              <a class="small" href="#">Preview</a>
+            </div>
+          </div>
+
+          <div class="product">
+            <div>
+              <strong>Social Media Templates</strong>
+              <div class="small">Price: $7 — editable Canva files</div>
+            </div>
+            <div>
+              <a class="btn" href="YOUR_PAYPAL_LINK">Buy (PayPal)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Affiliate suggestions -->
+        <div style="margin-top:14px" class="card">
+          <h3 style="margin:0">Affiliate Recommendations</h3>
+          <p class="small">Tools jo main suggest karta hoon (replace with apne affiliate links):</p>
+          <ul class="small">
+            <li><a href="AFFILIATE_LINK" style="color:var(--accent)">Web Hosting — 70% commission</a></li>
+            <li><a href="AFFILIATE_LINK" style="color:var(--accent)">Email Service — signup bonus</a></li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- Blog -->
+      <section id="blog" style="margin-top:18px">
+        <h2>Blog / Articles</h2>
+        <p class="small">Blog posts se traffic aayega — SEO aur long-form guides likhein.</p>
+        <div class="blog-list" style="margin-top:10px">
+          <article class="post">
+            <h4 style="margin:0">5 Asaan Tareeqay Online Paise Kamane ke</h4>
+            <p class="small">Short summary... <a href="#" style="color:var(--accent)">Read more</a></p>
+          </article>
+
+          <article class="post">
+            <h4 style="margin:0">Affiliate Marketing Shuru Karna — Beginner Guide</h4>
+            <p class="small">Short summary... <a href="#" style="color:var(--accent)">Read more</a></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Ads placeholder -->
+      <section style="margin-top:18px">
+        <h3>Ad Placeholder</h3>
+        <div class="card small">Replace with Google AdSense code after approval.<br>Example: &lt;script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;</div>
+      </section>
+
+      <!-- Contact / Footer -->
+      <section id="contact" style="margin-top:18px;display:flex;gap:16px;flex-direction:column">
+        <div class="card">
+          <h3 style="margin-top:0">Contact</h3>
+          <p class="small">Business enquiries: <a href="mailto:you@example.com">you@example.com</a></p>
+          <p class="small">Social: <a href="#" style="color:var(--accent)">@yourhandle</a></p>
+        </div>
+
+        <footer>
+          © <span id="year"></span> KamaiSite — Simple website to start earning.
+        </footer>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function subscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      // Best: send this to Mailchimp/Formspree/Your server. For demo, we store locally.
+      localStorage.setItem('sub_'+email, JSON.stringify({email:email, date:new Date()}));
+      document.getElementById('subMsg').textContent = 'Shukriya! Email save hogaya (demo). Ab ap Mailchimp ya server connect karen.';
+      document.getElementById('email').value = '';
+    }
+
+    // Simple demo: simulate product download
+    function buyProductDemo(name){
+      alert('Demo: ' + name + ' ke liye payment link replace karein.');
+    }
+  </script>
+
+  <!-- Deployment & Next Steps (visible in source for convenience) -->
+  <!--
+    Deploy options:
+      - GitHub Pages: push repo and enable Pages in settings.
+      - Netlify / Vercel: drag-and-drop this file or connect repo.
+      - Shared hosting: upload to public_html.
+
+    Payment setup:
+      - PayPal: create PayPal Buttons -> replace YOUR_PAYPAL_LINK
+      - Stripe: create Checkout sessions on your server and link
+
+    Email marketing:
+      - Mailchimp / ConvertKit: create a form and replace MAILCHIMP_FORM_ACTION in the form tag.
+
+    SEO Tips:
+      - Write 1 long guide (1500+ words) targeting one keyword.
+      - Add OG images and promote on social + WhatsApp groups.
+      - Apply to AdSense after having 10-15 posts and policy-compliant content.
+
+    Want customization? I can:
+      - Convert this to Urdu-language WordPress theme
+      - Add server-side payments (Stripe) and webhooks
+      - Set up Mailchimp / ConvertKit form and connect
+      - Create 5 SEO articles (I can write them for you)
+  -->
+</body>
+</html>
